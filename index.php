@@ -9,7 +9,7 @@ $dbConfig["DB"]["USER"] = "root";
 $dbConfig["DB"]["PWD"] = "";
 $dbConfig["DB"]["NAME"] = "test";
 
-$conn_id = opendb();
+$conn = opendb();
 
 $outcome = array();
 
@@ -18,10 +18,10 @@ try {
     $sql = "SELECT *
             FROM users";
     
-    $qres = query($sql);
+    $qres = query($conn,$sql);
 
 
-    while ($d = mysql_fetch_assoc($qres)) {
+    while ($d = mysqli_fetch_assoc($qres)) {
         $outcome[] = $d;
     }
 
@@ -31,4 +31,4 @@ try {
     echo $e;
 }
 
-closedb($conn_id);
+closedb($conn);

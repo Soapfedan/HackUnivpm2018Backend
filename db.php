@@ -4,24 +4,24 @@ function opendb() {
 
 	global $dbConfig;
 
-	$id = mysql_connect($dbConfig["DB"]["HOST"],$dbConfig["DB"]["USER"],$dbConfig["DB"]["PWD"]);
+	$conn = new mysqli($dbConfig["DB"]["HOST"],$dbConfig["DB"]["USER"],$dbConfig["DB"]["PWD"],$dbConfig["DB"]["NAME"]);
 	
-	return $id;
+	return $conn;
 	
 }
 
-function query($sql){
+function query($conn,$sql){
 	
 
-    $qres = mysql_query($sql);
+    $qres = $conn->query($sql);
 	return $qres;
 	
 }
 
 
-function closedb($conn_id) {
+function closedb($conn) {
 	
-	mysql_close( $conn_id );
+	mysqli_close($conn);
 	
 }
 
