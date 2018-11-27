@@ -1,0 +1,9 @@
+@domain = http://localhost:8080/api
+
+
+###
+GET {{domain}}/index.php/users/d2hlcmUgaWQgPSAy
+
+{
+    "ciao" : "ciao"
+}
